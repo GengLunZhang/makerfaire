@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Your Moment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Share Your Moment</h1>
+        <form id="locationForm" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name">Nickname:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Telephone:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="country">Country:</label>
+                <select id="country" name="country" required>
+                    <option value="">Select a country</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="city">City:</label>
+                <select id="city" name="city" required disabled>
+                    <option value="">First select a country</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="story">Your Story:</label>
+                <textarea id="story" name="story" rows="4" required 
+                    placeholder="Share your story about this place..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="photo">Picture of Location:</label>
+                <input type="file" id="photo" name="photo" accept="image/*" required>
+                <div id="preview" class="preview-container"></div>
+            </div>
+
+            <button type="submit">Share Your Story</button>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='js/form.js') }}"></script>
+</body>
+</html>
